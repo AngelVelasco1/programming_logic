@@ -86,9 +86,9 @@ class UserSession {
         this.email = email
     }
 
-    public static getIntance() {
+    public static getIntance({id, username, name, email}) {
         if (!UserSession.instance) {
-            UserSession.instance = new UserSession({id: '1' , username: 'Angel55', name: 'Angel', email: 'angelgg@gmail.com' })
+            UserSession.instance = new UserSession({id, username, name, email })
         }
         return UserSession.instance
     }
@@ -112,4 +112,8 @@ class UserSession {
     }
 }
 
-const user1 = UserSession.IN
+const user1 = UserSession.getIntance({id: "1", username: "Angel25", name: "Angel", email: "angelgg@outlook.com"})
+console.log(user1.get());
+user1.deleteSession()
+console.log(user1.get());
+
